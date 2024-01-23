@@ -88,7 +88,9 @@ function App() {
   );
 
   useEffect(() => {
-    fetch("http://localhost:3001/questions")
+    fetch(
+      "https://github.com/jpowell79/react-quiz/blob/main/src/questions.json"
+    )
       .then((res) => res.json())
       .then((data) => dispatch({ type: "DATA_RECEIVED", payload: data }))
       .catch((err) => dispatch({ type: "DATA_FAILED" }));
