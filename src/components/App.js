@@ -83,14 +83,13 @@ function App() {
 
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
-    (acc, curr) => acc + curr.points,
+    (prev, cur) => prev + cur.points,
     0
   );
 
   useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/jpowell79/react-quiz/main/src/questions"
-    )
+    // fetch("http://localhost:3001/questions")
+    fetch("https://my-json-server.typicode.com/jpowell79/react-quiz/questions/")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "DATA_RECEIVED", payload: data }))
       .catch((err) => dispatch({ type: "DATA_FAILED" }));
